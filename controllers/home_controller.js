@@ -1,5 +1,10 @@
 module.exports.home = function (req, res) {
-    return res.end('<h1>Express is up</h1>');
+    console.log(req.cookies);
+    res.cookie('user',890 )
+    console.log('billa');
+    return res.render('home', {
+        title:'Home'
+    })
 }
 
 // module.exports .actioame = function(req,res)
