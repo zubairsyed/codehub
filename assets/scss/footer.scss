@@ -1,0 +1,39 @@
+footer{
+    position: absolute;
+    bottom: 0;
+    height: 3rem;
+    width: 100%;
+    background-color: blue;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20%;
+        height: 100%;
+    }
+    ul{
+        width: 70%;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+        list-style: none;
+    }
+    li{
+        
+        padding-left: 1rem;
+    }
+    a{
+        border-bottom: none;
+        color: white;
+        text-decoration: none;
+    }
+    a:hover{
+        color: yellow;
+    }
+   
+}

@@ -4,16 +4,23 @@
             <%= title %>
         </title>
         <link rel="stylesheet" href="/css/layout.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/footer.css">
+        <!-- <link rel="stylesheet" href="/css/footer"> -->
+
+        <!-- to include style from other partials/files,folders -->
         <%- style %>
     </head>
     <body>
         <!-- referred from ejs documentation -->
-        <%- include('_header');%>
+            <%- include('_header');%>
+        <main id="layout-main">
+            <%- body%>
+        </main>
         
-        <%- body%>
+        
+            <%- include('_footer');%>
 
-        <%- include('_footer');%>
-
-        <%- script %>
+        <%- script  %>
     </body>
 </html>

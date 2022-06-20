@@ -9,6 +9,11 @@ module.exports.profile = function (req, res) {
 
 // to send the user_sign_up i.e html file from server to browser
 module.exports.signUp = function (req, res) {
+
+    if (req.isAuthenticated()) {
+        return res.redirect('/users/profile');
+    }
+
     return res.render('user_sign_up', {
         title: "codehub | Sign Up", 
     })
@@ -16,8 +21,13 @@ module.exports.signUp = function (req, res) {
 
 // to send the user_sign_in i.e html file from server to browser
 module.exports.signIn = function (req, res) {
+
+    if (req.isAuthenticated()) {
+        return res.redirect('/users/profile');
+    }
+
     return res.render('user_sign_in', {
-        title:"codehub | Sign Up"
+        title:"codehub | Sign In"
     })
 }
 
@@ -83,7 +93,15 @@ module.exports.create = function (req, res){
 
 }
 
-// get the sign in data
+// sign in and create a session for user
 module.exports.createSession = function (req, res){
-    // 
+    return res.redirect('/users/profile');
+}
+
+
+module.exports.destroySession = function (req, res) {
+    req.logout(function(err) {
+        if (err) { return next(err); }
+       return res.redirect('/users/sign-in');
+      });
 }
