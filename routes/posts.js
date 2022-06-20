@@ -5,5 +5,6 @@ console.log('user router loaded');
 
 
 router.get('/post', postController.post);
+router.post('/createPost', postController.createPost);
 
 module.exports = router;
