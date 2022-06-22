@@ -1,4 +1,6 @@
 const User = require('../models/user');
+console.log(User,"*************************************************")
+
 
 // to send the user_profile i.e html file from server to browser
 module.exports.profile = function (req, res) {
@@ -23,8 +25,8 @@ module.exports.signUp = function (req, res) {
 module.exports.signIn = function (req, res) {
 
     if (req.isAuthenticated()) {
-        // return res.redirect('/users/profile');
-        return res.redirect('/posts/post');
+        return res.redirect('/users/profile');
+        // return res.redirect('/posts/post');
     }
 
     return res.render('user_sign_in', {
