@@ -19,10 +19,21 @@ const Post = require('../models/post');
     
 // }
 
+// now to show comments on home page
+// loading 2 attributes comment and user od that comment
+        
 
 module.exports.home = function (req, res) {
     // populate the user of each post
-    Post.find({}).populate('user').exec(function (err, posts) {
+    Post.find({})
+        .populate('user')
+        .populate({
+            path: 'comments',
+            populate: {
+                path: 'user'
+            }
+        })
+        .exec(function (err, posts) {
         return res.render('home', {
             title: 'codehub|home',
             posts: posts

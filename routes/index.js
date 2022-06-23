@@ -5,8 +5,12 @@ console.log('router loaded');
 
 
 router.get('/', homeController.home);
+// this /posts can be defined for search url part and 
+// require(./posts) is used for file name in routes.
 router.use('/users', require('./users'));
-router.use('/posts',require('./posts'));
+router.use('/posts', require('./posts'));
+// calling the route comments.js in here as its a hub for all other route files
+router.use('/comments',require('./comments'))
 
 // ?for any other routs access from here
 // router.user('routerName',require('./routerfile))

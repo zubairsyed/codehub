@@ -18,8 +18,37 @@
                 <li>
                     <p>
                         <%= post.content %> <br> 
-                        <small><%= post.user.name %></small>
+                        <small><%= post['user']['name'] %></small>
                     </p>
+                    <!-- for every post we need comment -->
+                    <div class="post-comments">
+                        <!-- now i need to show form but only to them who are signed in -->
+                        <% if (locals.user){%>
+                            <!-- using post to send data -->
+                            <form action="comments/createComment" method="POST">
+                                <input type="text" name="content" placeholder="Type here to add comment.." required>
+                                <!-- sending the id of this comment to post id for which we r commenting -->
+                                <input type="hidden" name="post" value="<%= post._id%>">
+                                <input type="submit" value="Add Comment">
+                        
+                            </form>
+                        <%}%>
+                        <div class="post-comments-list">
+                            <ul id="post-comments-<%= post._id %>">
+                                <%for (comment of post.comments){%>
+                                    <hr>
+                                    <p> comment :
+                                        <%= comment.content%>
+                                        <br>
+                                        <small>
+                                            <%= comment.user.email%>
+                                        </small>
+                                    </p>
+                                    <hr>
+                                <%}%>
+                            </ul>
+                        </div>
+                    </div>
                 </li>
         
             <%}%>
