@@ -10,5 +10,8 @@ console.log('user router loaded');
 
 router.post('/createComment', passport.checkAuthentication,commentController.createComment);
 
+router.get('/destroyComment/:id', passport.checkAuthentication,commentController.destroyComment);
+
+
 module.exports = router;
 

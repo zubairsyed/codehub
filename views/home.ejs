@@ -3,6 +3,7 @@
             CODEHUB / <%= title %>
         </h1>
 
+<div id="home-container">
 <section id="feed-posts">
     <h4>Posts</h4>
     <%if(locals.user){%>
@@ -12,47 +13,25 @@
     </form>
     
     <% } %>
-    <div class="posts-list-container">
+    <div id="posts-list-container">
         <ul>
             <%for(post of posts){%>
-                <li>
-                    <p>
-                        <%= post.content %> <br> 
-                        <small><%= post['user']['name'] %></small>
-                    </p>
-                    <!-- for every post we need comment -->
-                    <div class="post-comments">
-                        <!-- now i need to show form but only to them who are signed in -->
-                        <% if (locals.user){%>
-                            <!-- using post to send data -->
-                            <form action="comments/createComment" method="POST">
-                                <input type="text" name="content" placeholder="Type here to add comment.." required>
-                                <!-- sending the id of this comment to post id for which we r commenting -->
-                                <input type="hidden" name="post" value="<%= post._id%>">
-                                <input type="submit" value="Add Comment">
-                        
-                            </form>
-                        <%}%>
-                        <div class="post-comments-list">
-                            <ul id="post-comments-<%= post._id %>">
-                                <%for (comment of post.comments){%>
-                                    <hr>
-                                    <p> comment :
-                                        <%= comment.content%>
-                                        <br>
-                                        <small>
-                                            <%= comment.user.email%>
-                                        </small>
-                                    </p>
-                                    <hr>
-                                <%}%>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
+                <%- include('_post') -%>
         
             <%}%>
         
             </ul>
     </div>
 </section>
+
+
+<section id="user-friends">
+    <h4>Friends</h4>
+    <% for(u of all_users){%>
+        <p>
+            <a href="/users/profile/<%= u.id%>"><%= u.name%></a>
+        </p>
+    <%}%>
+</section>
+
+</div>
