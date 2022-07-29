@@ -1,13 +1,29 @@
 #home-container{
     display: flex;
+    text-align: center;
     #feed-posts{
-        width: 70%;
+        width: 80%;
         padding: 10px;
     }
     #user-friends{
-        width: 30%;
+        width: 20%;
         padding: 10px;
         border-left: 1px solid lightgray;
+    }
+    #posts-list-container{
+        height: 35vh;
+        overflow: scroll;
+        background-color: white;
+        color: black;
+        overflow-x: hidden;
+        width: 30rem;
+        align-self: center;
+        margin: auto;
+        // margin-left: 15rem;
+    }
+    #user-friends{
+        overflow: scroll;
+        overflow-x: hidden;
     }
 }
 

@@ -1,20 +1,22 @@
-<li>
+<li id="post-<%=post._id %>">
     <p>
         <!-- if user and the user who created he post that i the check we r doing -->
         <% if(locals.user && locals.user.id == post.user.id){%>
         <small>
-            <a href="/posts/destroy/<%= post.id%>">X</a>
+            <a class="delete-post-button" href="/posts/destroy/<%= post.id%>">X</a>
         </small>
         <%}%>
         <%= post.content %> <br> 
-        <small><%= post['user']['name'] %></small>
+        <small><%= post.user.name %></small>
     </p>
     <!-- for every post we need comment -->
-    <div class="post-comments">
+    <div class="post-comments-<%=post._id %>">
         <!-- now i need to show form but only to them who are signed in -->
         <% if (locals.user){%>
             <!-- using post to send data -->
-            <form action="/comments/createComment" method="POST">
+            <form action="/comments/createComment" id="add-comment-form-${ post._id }"  method="POST">
+                <!-- let's give an id to the new comment form, we'll also need to make the same changes in home_posts.js where we're adding a post to the page -->
+        
                 <input type="text" name="content" placeholder="Type here to add comment.." required>
                 <!-- sending the id of this comment to post id for which we r commenting -->
                 <input type="hidden" name="post" value="<%= post._id%>">
@@ -27,7 +29,6 @@
                 <%for (comment of post.comments){%>
                     <hr>
                     <%- include('_comment') -%>
-                    <hr>
                 <%}%>
             </ul>
         </div>

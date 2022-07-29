@@ -2,11 +2,7 @@
         <h1>
             CODEHUB
         </h1>
-        <h3>Welcome <%= user.name%>! </h3>
-
-
-        
-
+        <h3>Welcome <%= user.name%>! </h3> 
 <!-- updating user profile link step 1 -->
     <% if(user.id == profile_user.id){%>
         <!-- if user matches show the form -->
@@ -16,35 +12,10 @@
             <input type="submit" value="update">
         </form>
         <%}else{%>
-            <!-- else show only the profile info -->
+              <!-- else show only the profile info -->
             <p><%= profile_user.name%></p>
-        <p><%= profile_user.email%></p>
+            <p><%= profile_user.email%></p>
     <%}%>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <!-- <form action="/users/createprofile" method="POST">
             <input type="email" placeholder="email" name="email" required>
             <input type="password" placeholder="password" name="password" required>

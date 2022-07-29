@@ -23,27 +23,57 @@ const User = require('../models/user');
 // loading 2 attributes comment and user od that comment
         
 
-module.exports.home = function (req, res) {
-    Post.find({})
-    .populate('user')
-    .populate({
-        path: 'comments',
-        populate: {
-            path: 'user'
-        }
-    })
-    .exec(function(err, posts){
+// module.exports.home = function (req, res) {
+//     Post.find({})
+//     .populate('user')
+//     .populate({
+//         path: 'comments',
+//         populate: {
+//             path: 'user'
+//         }
+//     })
+//     .exec(function(err, posts){
 
-        User.find({}, function(err, users){
-            return res.render('home', {
-                title: "Codeial | Home",
-                posts:  posts,
-                all_users: users
-            });
-        });
+//         User.find({}, function(err, users){
+//             return res.render('home', {
+//                 title: "Codeial | Home",
+//                 posts:  posts,
+//                 all_users: users
+//             });
+//         });
 
        
-    })
+//     })
+
+// }
+// module.exports .actionName = function(req,res)
+
+// we are using async/await coz of 
+// nesting of functions
+
+module.exports.home = async function (req, res) {
+    try {
+        let posts = await Post.find({})
+         .sort('-createdAt')
+            .populate('user')
+            .populate({
+                path: 'comments',
+                populate: {
+                    path: 'user'
+                }
+            })
+
+        let users = await User.find({});
+
+        return res.render('home', {
+            title: "Codeial | Home",
+            posts: posts,
+            all_users: users
+        });
+    }
+    catch (err) {
+        console.log('Error', err);
+        return;
+    }
 
 }
-// module.exports .actionName = function(req,res)

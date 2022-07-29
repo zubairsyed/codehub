@@ -1,29 +1,24 @@
 <link rel="stylesheet" href="/css/home.css">
-        <h1>
-            CODEHUB / <%= title %>
-        </h1>
-
+        <h1>CODEHUB / <%= title %></h1>
 <div id="home-container">
 <section id="feed-posts">
     <h4>Posts</h4>
+
+    <!-- if user is authorised then only we are moved to home page for creating post -->
     <%if(locals.user){%>
-    <form action="posts/createPost" id="new-post-form" method="POST">
-        <textarea name="content" cols="30" rows="3" placeholder="Type Here..." required></textarea>
-        <input type="submit" value="Post">
+    <form action="/posts/createPost" id="new-post-form" method="POST">
+        <textarea name="content" cols="30" rows="3" placeholder="Type Here..." required></textarea><br><br>
+        <input type="submit" value="Post" >
     </form>
-    
     <% } %>
     <div id="posts-list-container">
         <ul>
             <%for(post of posts){%>
                 <%- include('_post') -%>
-        
             <%}%>
-        
-            </ul>
+        </ul>
     </div>
 </section>
-
 
 <section id="user-friends">
     <h4>Friends</h4>
@@ -33,5 +28,7 @@
         </p>
     <%}%>
 </section>
-
 </div>
+
+<!-- <script src="/js/home_comments.js"> </script> -->
+<script src="/js/home_posts.js"> </script>
