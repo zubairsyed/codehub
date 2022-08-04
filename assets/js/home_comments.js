@@ -3,7 +3,8 @@
 // 1. When the page loads
 // 2. Creation of every post dynamically via AJAX
 
-class PostComments {
+class PostComments{
+    
     // constructor is used to initialize the instance of the class whenever a new instance is created
     constructor(postId){
         this.postId = postId;
@@ -14,13 +15,13 @@ class PostComments {
 
         let self = this;
         // call for all the existing comments
-        $('.delete-comment-button', this.postContainer).each(function(){
+        $(' .delete-comment-button', this.postContainer).each(function(){
             self.deleteComment($(this));
         });
     }
 
 
-    createComment(postId) {
+    createComment(postId){
         let pSelf = this;
         this.newCommentForm.submit(function(e){
             e.preventDefault();
@@ -54,7 +55,7 @@ class PostComments {
     }
 
 
-    newCommentDom(comment) {
+    newCommentDom(comment){
         // I've added a class 'delete-comment-button' to the delete comment link and also id to the comment's li
         return $(`<li id="comment-${ comment._id }">
                         <p>
@@ -74,10 +75,10 @@ class PostComments {
     }
 
 
-    deleteComment(deleteLink) {
+    deleteComment(deleteLink){
         $(deleteLink).click(function(e){
             e.preventDefault();
-            console.log("comment delete");
+
             $.ajax({
                 type: 'get',
                 url: $(deleteLink).prop('href'),

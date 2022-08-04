@@ -1,4 +1,6 @@
 const User = require('../models/user');
+const fs = require('fs');
+const path = require('path');
 console.log(User,"*************************************************")
 
 
@@ -14,16 +16,46 @@ module.exports.profile = function (req, res) {
 }
 
 
-module.exports.update = function (req, res) {
-    if (req.user.id == req.params.id) {
-        // {name: req.body.name, email: req.body.email} instead we r writing req.body
-        User.findByIdAndUpdate(req.params.id, req.body, function (err, user) {
+module.exports.update = async function (req, res) {
+
+    // if (req.user.id == req.params.id) {
+    //     // {name: req.body.name, email: req.body.email} instead we r writing req.body
+    //     User.findByIdAndUpdate(req.params.id, req.body, function (err, user) {
+    //         return res.redirect('back');
+    //     });
+    // } else {
+    //     req.flash('error', 'Unauthorized!');
+    //     return res.status(401).send('Unauthorised');
+    // }
+
+    if(req.user.id == req.params.id){
+        try{
+            let user = await User.findById(req.params.id);
+            User.uploadedAvatar(req, res, function(err){
+                if(err){console.log("*********",err)}
+                 user.name = req.body.name;
+                 user.email = req.body.email;
+                 if(req.file){
+                    // if there is any previous user this UnlinkSync
+                    // replaces the previous pic with latest 1 
+                    if(user.avatar){
+                        fs.unlinkSync(path.join(__dirname, "..", user.avatar));
+                    }
+                    // this is saving the paath of the upload file into the avatar field in the user
+                    user.avatar = User.avatarPath + '/' + req.file.filename;
+                 }
+                 user.save();
+                 return res.redirect('back');
+            });
+        }catch(err){
+            req.flash('error',err);
             return res.redirect('back');
-        });
-    } else {
-        req.flash('error', 'Unauthorized!');
-        return res.status(401).send('Unauthorised');
+        }
+    }else{
+        req.flash('error',err);
+        return res.redirect('back');
     }
+
 }
 
 // to send the user_sign_up i.e html file from server to browser
