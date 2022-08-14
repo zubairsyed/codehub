@@ -7,10 +7,12 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+        <script src="https://kit.fontawesome.com/5147082889.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="/css/layout.css">
         <link rel="stylesheet" href="/css/header.css">
         <link rel="stylesheet" href="/css/footer.css">
+        <link rel="stylesheet" href="/css/signin.css">
+        <link rel="stylesheet" href="/css/_comment.css">
         <!-- <link rel="stylesheet" href="/css/footer"> -->
 
         <!-- to include style from other partials/files,folders -->
@@ -27,7 +29,16 @@
         <main id="layout-main">
             <%- body%>
         </main>
-        
+
+        <div id="chatBox">
+            <i class="fas fa-xmark"></i>
+            <p id="recv">Hello welcome to codehub</p>
+            <p id="sender">hi i want help reg post</p>
+            <div id="messageContent">
+                <input type="text" placeholder="Enter your message...">
+                <input type="submit" value="send">
+            </div>
+        </div>
         <%- include('_footer');%>
 
         <%- script  %>

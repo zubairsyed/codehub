@@ -1,5 +1,8 @@
 const Post = require('../models/post');
 const Comment = require('../models/comment');
+const Like = require('../models/like');
+
+
 console.log("in post js controller&**************&&&&&*");
 console.log(Post,"bumbar&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*&*");
 
@@ -12,7 +15,10 @@ module.exports.createPost = async function (req, res) {
             content: req.body.content,
             user: req.user
         });
+        
         console.log("post created successfully");
+
+
         if (req.xhr) {
             // post = await post.populate('user','name');
             
@@ -42,6 +48,12 @@ module.exports.destroy = async function (req, res) {
         // .id means converting the object id into string
         
         if (post.user == req.user.id) {
+
+            
+            // CHANGE :: delete the associated likes for the post and all its comments' likes too
+            await Like.deleteMany({likeable: post, onModel: 'Post'});
+            await Like.deleteMany({_id: {$in: post.comments}});
+            
             post.remove();
             await Comment.deleteMany({ post: req.params.id });
             if (req.xhr) {

@@ -12,7 +12,7 @@ router.use('/posts', require('./posts'));
 // calling the route comments.js in here as its a hub for all other route files
 router.use('/comments',require('./comments'))
 router.use('/api',require('./api'));
-
+router.use('/likes', require('./likes'));
 
 // ?for any other routs access from here
 // router.user('routerName',require('./routerfile))

@@ -1,0 +1,75 @@
+
+#signinForm{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1{
+    color: white;
+    margin-bottom: 3rem;
+}
+
+#signinForm form {
+    width: 328px;
+}
+
+form label{
+    color: white;
+    display: block;
+    font-size: 1rem;
+    text-align: left;
+    margin: 0.3rem;
+    padding: 0;
+}
+
+form input[type="text"], form input[type="email"], form input[type="password"] {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid #c4c4c4;
+    padding: 1rem;
+    font-size: 0.875rem;
+}
+
+
+
+form #signin-button{
+    margin-top: 0.7rem;
+    width: 100%;
+    color: rgb(67, 1, 1);
+    background-color: lightblue;
+    padding: 0.7rem;
+    border-radius: 8px;
+    font-size: medium;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: all ease-in-out 0.3s;
+}
+
+form #signin-button:hover{
+    color: white;
+    background-color: rgb(113, 72, 235);
+}
+
+#g-link{
+    padding-top: 1rem;
+}
+
+#g-link a{
+    color: rgb(138, 238, 89);
+    font-size: 2rem;
+}
+
+#g-link a:hover{
+    color: rgb(217, 217, 244);
+    text-decoration: underline;
+}
+
+#p-desc{
+    font-size: 1rem;
+    color: white;
+}

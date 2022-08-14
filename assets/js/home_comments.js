@@ -70,7 +70,6 @@ class PostComments{
                                 ${comment.user.name}
                             </small>
                         </p>    
-
                 </li>`);
     }
 

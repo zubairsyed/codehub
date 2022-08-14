@@ -1,11 +1,44 @@
 body{
     margin: 0;
+    background-image: linear-gradient(to right, #1a228c, #74007f, #a40064, #c00041, #c90c18);
 }
 
 #layout-main{
     text-align: center;
     margin: 1rem;
-    border: 2px solid black;
-    background-color: red;
     height: 84vh;
+}
+
+#chatBox{
+    position: absolute;
+    bottom: 3.1rem;
+    right: 0.1rem;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border: 1px solid black;
+    color: white;
+
+    #recv{
+        margin: 2px 0px 0px 2px;
+        padding: 2px;
+        float: left;
+        background-color: red;
+    }
+
+    #sender{
+        margin: 2px 2px 0px 0px;
+        padding: 2px;
+        float: right;
+        background-color: blueviolet;
+    }
+
+    input[type="text"]{
+        width: 150px;
+    }
+    #messageContent{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
 }

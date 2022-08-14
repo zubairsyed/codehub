@@ -1,0 +1,15 @@
+.post-comments form{
+    display: flex;
+    justify-content: center;
+}
+
+.post-comments form input[type="text"]{
+    width: 200px;
+    padding: 0.5rem;
+}
+
+.post-comments form input[type="submit"]{
+    width: 100px;
+    font-size: 0.7rem;
+    margin-left: 1rem;
+}

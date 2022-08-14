@@ -1,21 +1,43 @@
-<li id="post-<%=post._id %>">
-    <p>
+<li id="post-<%= post._id %>">
+    <p id="posts_lists_id">
         <!-- if user and the user who created he post that i the check we r doing -->
+        <%= post.content %> <span style="color: black; margin: 0; padding: 0; font-weight: 500;">[ POST ]</span>
         <% if(locals.user && locals.user.id == post.user.id){%>
         <small>
-            <a class="delete-post-button" href="/posts/destroy/<%= post.id%>">X</a>
+            <a class="delete-post-button" href="/posts/destroy/<%= post._id %>">X</a>
         </small>
         <%}%>
-        <%= post.content %> <br> 
-        <small><%= post.user.name %></small>
+        
+         <br> 
+         <small>
+            <%= post.user.name %>
+        </small>
+
+        
+        <!-- CHANGE :: display the likes of this post, if the user is logged in, then show the link to toggle likes, else, just show the count -->
+        <br>
+            <!-- study about the data attribute -->
+        <small>
+            <% if (locals.user){ %>
+                <a id = "toggle-like-id" class="toggle-like-button" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%=post._id%>&type=Post">
+                        <%= post.likes.length %> Likes
+                </a>
+            <% }else{ %>
+                <%= post.likes.length %> Likes
+            <% } %>
+        </small>
+
     </p>
     <!-- for every post we need comment -->
-    <div class="post-comments-<%=post._id %>">
+    <!-- <div class="post-comments-<%=post._id %>"> -->
+    <div class="post-comments">
         <!-- now i need to show form but only to them who are signed in -->
         <% if (locals.user){%>
             <!-- using post to send data -->
-            <form action="/comments/createComment" id="add-comment-form-${ post._id }"  method="POST">
+            <!-- <form action="/comments/createComment" id="add-comment-form-<%= post._id %>"  method="POST"> -->
                 <!-- let's give an id to the new comment form, we'll also need to make the same changes in home_posts.js where we're adding a post to the page -->
+                        
+            <form id="post-<%= post._id %>-comments-form" action="/comments/createComment" method="POST">
         
                 <input type="text" name="content" placeholder="Type here to add comment.." required>
                 <!-- sending the id of this comment to post id for which we r commenting -->
@@ -24,12 +46,14 @@
         
             </form>
         <%}%>
+         <hr style="font-weight: 700;"> 
         <div class="post-comments-list">
             <ul id="post-comments-<%= post._id %>">
                 <%for (comment of post.comments){%>
-                    <hr>
                     <%- include('_comment') -%>
+                    
                 <%}%>
+                <hr>
             </ul>
         </div>
     </div>
