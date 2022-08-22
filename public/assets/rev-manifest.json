@@ -1,0 +1,19 @@
+{
+  "css/_comment.css": "css/_comment-da3763ce02.css",
+  "css/chat_box.css": "css/chat_box-3aa9f1fb21.css",
+  "css/footer.css": "css/footer-6aed7b9452.css",
+  "css/header.css": "css/header-43021db2ba.css",
+  "css/home.css": "css/home-6263454767.css",
+  "css/layout.css": "css/layout-a772306e10.css",
+  "css/signin.css": "css/signin-10162bfe94.css",
+  "css/signup.css": "css/signup-d8aebcb5b6.css",
+  "css/user_profile.css": "css/user_profile-bf94b0b59a.css",
+  "images/robo.jpg": "images/robo-ee828655b1.jpg",
+  "js/1home_comments.js": "js/1home_comments-4f7fd0d8af.js",
+  "js/1home_posts.js": "js/1home_posts-1832c43ee1.js",
+  "js/1toggle_likes.js": "js/1toggle_likes-0e3d81481c.js",
+  "js/chat_engine.js": "js/chat_engine-7f3c28bb89.js",
+  "js/home_comments.js": "js/home_comments-946e3c28c4.js",
+  "js/home_posts.js": "js/home_posts-4c5f7f0cd9.js",
+  "js/toggle_likes.js": "js/toggle_likes-0e3d81481c.js"
+}

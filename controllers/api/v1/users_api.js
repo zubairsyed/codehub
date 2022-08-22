@@ -1,6 +1,6 @@
 const User = require('../../../models/user');
 const jwt = require('jsonwebtoken');
-
+const env = require('../../../config/environment');
 
 
 // copied from users_controller
@@ -24,7 +24,7 @@ module.exports.createSession = async function (req, res){
                 // user.toJSON() - for adding external JSON to it
                 // 'codeil' = header
                 // {expiresIn: '10000'} - timing 1s
-                token: jwt.sign(user.toJSON(), 'codiel', {expiresIn: '100000'})
+                token: jwt.sign(user.toJSON(), env.jwt_secret, {expiresIn: '100000'})
             }
         })
     }   

@@ -1,0 +1,8 @@
+body {
+  margin: 0;
+  background-image: linear-gradient(to right, #1a228c, #74007f, #a40064, #c00041, #c90c18); }
+
+#layout-main {
+  text-align: center;
+  margin: 1rem;
+  height: 84vh; }
