@@ -1,168 +1,136 @@
-body{ 
-    background-image: linear-gradient(to right, #1a228c, #74007f, #a40064, #c00041, #c90c18);
-  }
+body {
+    background-image: linear-gradient(to right, #1a228c, #74007f, #a40064, #c00041, #c90c18); }
   
-  h2,p,a{
-      color: white;
-  }
+  h2, p, a {
+    color: white; }
   
-  :root{
-      font-size: 100%;
-      font-size:16px;
-      line-height: 1.5;
-      --primary-blue: #233975;
-  }
+  :root {
+    font-size: 100%;
+    font-size: 16px;
+    line-height: 1.5;
+    --primary-blue: #233975; }
   
-  a{
-      text-decoration: none;
-      color: var(--primary-blue);
-  }
+  a {
+    text-decoration: none;
+    color: var(--primary-blue); }
   
-  a:hover{
-      text-decoration: underline;
-  }
+  a:hover {
+    text-decoration: underline; }
   
+  .small {
+    font-size: 80%;
+    text-align: center; }
   
-  .small{
-      font-size: 80%;
-      text-align: center;
-  }
+  .split-screen {
+    color: white;
+    height: 84vh;
+    display: flex;
+    flex-direction: column; }
   
-  .split-screen{
-      color: white;
-      height: 84vh;
-      display: flex;
-      flex-direction: column;
-  }
-  
-  .left{
-  
-      height: 200px;
-  }
+  .left {
+    height: 200px; }
   
   .left, .right {
-      
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center; }
   
-  .left{
-      background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url('https://www.aramcolife.com/-/media/aramco-life/publications/the-arabian-sun/articles/2021/week-30/machine-learning.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-  }
+  .left {
+    background: linear-gradient(rgba(0, 0, 0, 0), black), url("https://www.aramcolife.com/-/media/aramco-life/publications/the-arabian-sun/articles/2021/week-30/machine-learning.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; }
   
-  .left .copy{
-      color: white;
-      text-align: center;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-  }
+  .left .copy {
+    color: white;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; }
   
-  .left p{
-      font-weight: 400;
-  }
+  .left p {
+    font-weight: 400; }
   
-  .right .copy{
-      color: black;
-      text-align: center;
-  }
+  .right .copy {
+    color: black;
+    text-align: center; }
   
-  .right.copy p{
-      margin: 1.5rem 0;
-      font-size: 0.875rem;
-  }
+  .right.copy p {
+    margin: 1.5rem 0;
+    font-size: 0.875rem; }
   
   .right form {
-      width: 328px;
-  }
+    width: 328px; }
   
-   form input[type="text"],
-   form input[type="email"],
-   form input[type="password"],
-   form input[type="cpassword"]{
-      display: block;
-      width: 100%;
-      box-sizing: border-box;
-      border-radius: 8px;
-      border: 1px solid #c4c4c4;
-      padding: 1rem;
-      margin-bottom: 1.25rem;
-      font-size: 0.875rem;
-   }
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="password"],
+  form input[type="cpassword"] {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid #c4c4c4;
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.875rem; }
   
-   label{
-      color: white;
-      display: block;
-      margin-bottom: 0.5rem;
-      font-size: 0.825rem;
-      text-align: left;
-   }
+  label {
+    color: white;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.825rem;
+    text-align: left; }
   
-   .input-container.password{
-      position: relative;
-   }
+  .input-container.password {
+    position: relative; }
   
-   .input-container.password i{
-      position: absolute;
-      top: 42px;
-      right: 16px;
-   }
+  .input-container.password i {
+    position: absolute;
+    top: 42px;
+    right: 16px; }
   
+  .checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0; }
   
-   .checkbox-container input{
-      position: absolute;
-      opacity: 0;
-      cursor: pointer;
-      height: 0;
-      width: 0;
-   }
+  .checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 2rem;
+    cursor: pointer;
+    user-select: none;
+    margin: 0 0 1.25rem 0; }
   
-   .checkbox-container{
-      display: block;
-      position: relative;
-      padding-left: 2rem;
-      cursor: pointer;
-      user-select: none;
-      margin: 0 0 1.25rem 0;
-   }
+  form input[type="submit"] {
+    display: block;
+    width: 100%;
+    background: var(--primary-blue);
+    color: white;
+    font-weight: 700;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px; }
   
-   form input[type="submit"]{
-      display: block;
-      width: 100%;
-      background: var(--primary-blue);
-      color: white;
-      font-weight: 700;
-      border: none;
-      padding: 1rem;
-      border-radius: 8px;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-   }
+  form input[type="submit"]:hover {
+    background: #2c4893;
+    cursor: pointer; }
   
-   form input[type="submit"]:hover {
-      background: #2c4893;
-      cursor: pointer;
-   }
+  .fa-eye-slash {
+    color: black; }
   
-   .fa-eye-slash{
-      color: black;
-   }
+  @media screen and (min-width: 900px) {
+    .split-screen {
+      flex-direction: row; }
+    .left {
+      height: 84vh; }
+    .left, .right {
+      display: flex;
+      width: 50%; }
+    .fa-eye-slash {
+      color: black; } }
   
-   @media screen and (min-width: 900px){
-      .split-screen {
-          flex-direction: row;
-      }
-      .left{
-          height: 84vh;
-      }
-      .left, .right{
-          display: flex;
-          width: 50%;
-      }
-      .fa-eye-slash{
-          color: black;
-       }
-   }
