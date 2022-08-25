@@ -25,7 +25,7 @@ const development = {
         secure: false,
         auth: {
             user: 'zubairsyed0301@gmail.com',
-            pass: 'hqgrwfbupkwfunng'
+            pass: 'pzskhmydobzseskz'
         }
     
     },
